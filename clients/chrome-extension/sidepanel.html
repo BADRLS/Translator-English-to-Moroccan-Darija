@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Darija LLM Translator</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="flag">🇲🇦</span>
+      <div>
+        <h1>Darija Translator</h1>
+        <p class="subtitle">Jakarta REST + Gemini LLM</p>
+      </div>
+    </div>
+    <button id="toggleSettingsBtn" class="icon-btn" title="Server & Auth Settings">⚙️</button>
+  </header>
+
+  <section id="settingsPanel" class="card settings-panel hidden">
+    <h2>Backend Connection (Basic Auth)</h2>
+    <label>
+      REST Endpoint Base URL
+      <input type="url" id="apiUrlInput" value="http://localhost:8080/api/translator" />
+    </label>
+    <div class="row">
+      <label>
+        Username
+        <input type="text" id="usernameInput" value="admin" />
+      </label>
+      <label>
+        Password
+        <input type="password" id="passwordInput" value="password123" />
+      </label>
+    </div>
+    <button id="saveSettingsBtn" class="secondary-btn">Save Credentials</button>
+  </section>
+
+  <main class="container">
+    <section class="card">
+      <div class="label-row">
+        <label for="sourceText">Source Text (English / French)</label>
+        <div class="action-Group">
+          <button id="micBtn" class="chip-btn" title="Speak into microphone (Voice-to-Voice)">🎤 Speak</button>
+          <button id="pasteBtn" class="chip-btn" title="Paste from clipboard">📋 Paste</button>
+        </div>
+      </div>
+      <textarea
+        id="sourceText"
+        rows="4"
+        placeholder="Select text on any webpage and right-click 'Translate to Moroccan Darija', or type here..."
+      ></textarea>
+      <button id="translateBtn" class="primary-btn">Translate to Moroccan Darija</button>
+    </section>
+
+    <div id="statusBanner" class="status-banner hidden"></div>
+
+    <section id="resultCard" class="card result-card hidden">
+      <div class="result-header">
+        <span class="badge">Moroccan Darija (الدارجة المغربية)</span>
+        <div class="action-Group">
+          <button id="speakArabicBtn" class="chip-btn" title="Read Aloud (TTS)">🔊 Read Aloud</button>
+          <button id="copyResultBtn" class="chip-btn" title="Copy Translation">📄 Copy</button>
+        </div>
+      </div>
+
+      <div class="result-block">
+        <span class="block-label">Arabic Script</span>
+        <p id="darijaArabicOutput" class="arabic-text" dir="rtl"></p>
+      </div>
+
+      <div class="result-block">
+        <span class="block-label">Moroccan Latin / Arabizi</span>
+        <p id="darijaLatinOutput" class="latin-text"></p>
+      </div>
+
+      <div class="result-block">
+        <span class="block-label">Phonetic Pronunciation Guide</span>
+        <p id="phoneticOutput" class="phonetic-text"></p>
+      </div>
+
+      <footer class="meta-footer">
+        <span id="modelMeta"></span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Moroccan Darija LLM Translator (Side Panel)",
+  "version": "1.0.0",
+  "description": "Select text on any webpage, right-click to auto-copy and paste into the Side Panel, and translate to Moroccan Darija via the Jakarta REST API.",
+  "permissions": [
+    "sidePanel",
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "http://localhost:8080/*",
+    "http://127.0.0.1:8080/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Open Darija Translator Side Panel"
+  }
+}
+

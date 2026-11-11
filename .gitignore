@@ -1,0 +1,24 @@
+# Compiled Java bytecode & Maven artifacts
+backend/target/
+*.class
+
+# Node / React Native dependencies & cache
+clients/react-native-client/node_modules/
+clients/react-native-client/.expo/
+clients/react-native-client/web-build/
+node_modules/
+.npm/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+clients/python-client/__pycache__/
+
+# IDE & OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
